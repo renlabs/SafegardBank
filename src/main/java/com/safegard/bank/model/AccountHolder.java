@@ -3,7 +3,9 @@ package com.safegard.bank.model;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Table;
 
+@Table(name = "ACCOUNT_HOLDER")
 public class AccountHolder {
 
     private String lastName;
