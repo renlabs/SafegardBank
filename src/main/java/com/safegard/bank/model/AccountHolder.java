@@ -1,11 +1,13 @@
 package com.safegard.bank.model;
 
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
+
+@Entity
 @Table(name = "ACCOUNT_HOLDER")
+@XmlRootElement
 public class AccountHolder {
 
 	private String lastName;
@@ -45,6 +47,7 @@ public class AccountHolder {
 	}
 
 	@Column(name = "BIRTHDATE")
+	@Temporal(javax.persistence.TemporalType.DATE)
 	public Date getBirthdate() {
 		return birthdate;
 	}
