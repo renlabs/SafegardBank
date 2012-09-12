@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -11,6 +12,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "ACCOUNT")
+@XmlRootElement
 public class Account implements Serializable {
 
 	@Id

@@ -3,6 +3,7 @@ package com.safegard.bank.model;
 import com.safegard.bank.enums.TransactionType;
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.joda.time.DateTime;
 
 /**
@@ -11,6 +12,7 @@ import org.joda.time.DateTime;
  */
 @Entity
 @Table(name = "TRANS_RECORD")
+@XmlRootElement
 public class TransactionRecord implements Serializable {
 
 	@Id
