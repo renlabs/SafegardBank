@@ -1,7 +1,14 @@
 package com.safegard.bank.model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name = "BANK_USER")
 public class BankUser {
 
+    private Long id;
     private String lastName;
     private String firstName;
     private String middleName;
@@ -9,6 +16,17 @@ public class BankUser {
     private String username;
     private String password;
 
+    @Id
+    @GeneratedValue
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Column(name = "LAST_NAME", length = 25)
     public String getLastName() {
         return lastName;
     }
@@ -17,6 +35,7 @@ public class BankUser {
         this.lastName = lastName;
     }
 
+    @Column(name = "FIRST_NAME", length = 25)
     public String getFirstName() {
         return firstName;
     }
@@ -25,6 +44,7 @@ public class BankUser {
         this.firstName = firstName;
     }
 
+    @Column(name = "MIDDLE_NAME", length = 25)
     public String getMiddleName() {
         return middleName;
     }
@@ -33,6 +53,7 @@ public class BankUser {
         this.middleName = middleName;
     }
 
+    @Column(name = "EMAIL", length = 30)
     public String getEmail() {
         return email;
     }
@@ -41,6 +62,7 @@ public class BankUser {
         this.email = email;
     }
 
+    @Column(name = "USERNAME", length = 20)
     public String getUsername() {
         return username;
     }
@@ -49,6 +71,7 @@ public class BankUser {
         this.username = username;
     }
 
+    @Column(name = "PASSWORD", length = 20)
     public String getPassword() {
         return password;
     }

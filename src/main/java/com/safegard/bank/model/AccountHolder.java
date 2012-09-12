@@ -2,7 +2,7 @@ package com.safegard.bank.model;
 
 import java.util.Date;
 
-import com.safegard.bank.enums.Gender;
+import javax.persistence.Column;
 
 public class AccountHolder {
 
@@ -10,10 +10,11 @@ public class AccountHolder {
     private String firstName;
     private String middleName;
     private Date birthdate;
-    private Gender gender;
+    private String gender;
     private String address;
     private String phone;
 
+    @Column(name = "LAST_NAME", length = 25)
     public String getLastName() {
         return lastName;
     }
@@ -22,6 +23,7 @@ public class AccountHolder {
         this.lastName = lastName;
     }
 
+    @Column(name = "FIRST_NAME", length = 25)
     public String getFirstName() {
         return firstName;
     }
@@ -30,6 +32,7 @@ public class AccountHolder {
         this.firstName = firstName;
     }
 
+    @Column(name = "MIDDLE_NAME", length = 25)
     public String getMiddleName() {
         return middleName;
     }
@@ -38,6 +41,7 @@ public class AccountHolder {
         this.middleName = middleName;
     }
 
+    @Column(name = "BIRTHDATE")
     public Date getBirthdate() {
         return birthdate;
     }
@@ -46,14 +50,16 @@ public class AccountHolder {
         this.birthdate = birthdate;
     }
 
-    public Gender getGender() {
+    @Column(name = "GENDER")
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
+    @Column(name = "ADDRESS")
     public String getAddress() {
         return address;
     }
@@ -62,6 +68,7 @@ public class AccountHolder {
         this.address = address;
     }
 
+    @Column(name = "PHONE")
     public String getPhone() {
         return phone;
     }
