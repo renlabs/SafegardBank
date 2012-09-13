@@ -1,16 +1,20 @@
 package com.safegard.bank.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "BANK_USER")
-@XmlRootElement
-public class BankUser {
+public class BankUser implements Serializable{
+
+    private static final long serialVersionUID = -1426209485607891895L;
 
     private Long id;
     private String lastName;
@@ -19,9 +23,10 @@ public class BankUser {
     private String email;
     private String username;
     private String password;
+    private int version;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -82,6 +87,15 @@ public class BankUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Version
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
     }
 
 }
