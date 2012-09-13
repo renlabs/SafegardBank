@@ -14,15 +14,15 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
-import com.safegard.bank.model.AccountHolder;
+import com.safegard.bank.model.BankUser;
 
 @Component
-@Path("accountHolder.service")
-public interface AccountHolderService {
+@Path("bankUser.service")
+public interface BankUserService {
 
     @POST
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    Response save(AccountHolder accountHolder);
+    Response save(BankUser bankUser);
 
     @DELETE
     @Path("{id}")
@@ -31,19 +31,13 @@ public interface AccountHolderService {
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    AccountHolder find(@PathParam("id") Long id);
+    BankUser find(@PathParam("id") Long id);
 
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    List<AccountHolder> findAll();
-
-    @GET
-    @Path("query")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    AccountHolder findByAccountId(@PathParam("accountId") String accountId);
+    List<BankUser> findAll();
 
     @POST
     @Path("create-test-data")
     public Response createTestData();
-
 }
