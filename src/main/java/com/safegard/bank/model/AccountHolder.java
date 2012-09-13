@@ -1,10 +1,7 @@
 package com.safegard.bank.model;
 
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.OneToOne;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
@@ -12,6 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "ACCOUNT_HOLDER")
 @XmlRootElement
 public class AccountHolder {
+	private Long id;
 
 	private String lastName;
 	private String firstName;
@@ -50,6 +48,7 @@ public class AccountHolder {
 	}
 
 	@Column(name = "BIRTHDATE")
+	@Temporal(javax.persistence.TemporalType.DATE)
 	public Date getBirthdate() {
 		return birthdate;
 	}
@@ -92,5 +91,14 @@ public class AccountHolder {
 
 	public void setAccount(Account account) {
 		this.account = account;
+	}
+
+	@Id
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 }
