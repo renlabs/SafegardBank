@@ -68,17 +68,12 @@ public class DefaultAccountHolderService implements AccountHolderService {
         ah1.setLastName("Doe");
         ah1.setMiddleName("Tera");
         ah1.setPhone("123-123-1234");
-        
+
         accountRepo.save(ac);
         ah1.setAccount(ac);
         accountHolderRepo.save(ah1);
 
         return Response.ok().build();
-    }
-
-    @Override
-    public AccountHolder findByAccountId(String accountId) {
-        return accountHolderRepo.findByAccountId(accountId);
     }
 
 }

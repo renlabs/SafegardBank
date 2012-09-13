@@ -30,6 +30,7 @@ public class DefaultAccountService implements AccountService{
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Account> findAll() {
         return (List<Account>) accountRepo.findAll();
     }

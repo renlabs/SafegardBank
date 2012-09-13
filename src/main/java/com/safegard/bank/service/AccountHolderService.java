@@ -37,11 +37,6 @@ public interface AccountHolderService {
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     List<AccountHolder> findAll();
 
-    @GET
-    @Path("query")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    AccountHolder findByAccountId(@PathParam("accountId") String accountId);
-
     @POST
     @Path("create-test-data")
     public Response createTestData();
