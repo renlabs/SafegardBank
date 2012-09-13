@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Set;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  *
@@ -13,6 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "ACCOUNT")
 @XmlRootElement
+@XmlType
 public class Account implements Serializable {
 
 	@Id
@@ -20,9 +22,9 @@ public class Account implements Serializable {
 	private Long id;
 	@Version
 	private int version;
-	@Column(name = "ACCNT_NO")
+	@Column(name = "ACCNT_NO", unique=true)
 	private String accountNo;
-	@OneToOne(fetch= FetchType.LAZY)
+	@OneToOne(fetch= FetchType.EAGER, cascade= CascadeType.ALL)
 	@JoinColumn(name="ACCOUNT_HOLDER_ID")
 	private AccountHolder accountHolder;
 	@Column(name = "PIN")
@@ -34,7 +36,7 @@ public class Account implements Serializable {
 	private double availableBalance;
 	@Column(name = "TOTAL_BAL")
 	private double totalBalance;
-	@OneToMany(
+	@OneToMany(fetch= FetchType.EAGER,
             mappedBy = "account",
 			   cascade = CascadeType.ALL)
 	private Set<TransactionRecord> transactionRecords;

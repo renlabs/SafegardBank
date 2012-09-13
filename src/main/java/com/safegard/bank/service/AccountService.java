@@ -32,4 +32,8 @@ public interface AccountService {
 	@Path("query")
 	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	Account findByAccountNo(@QueryParam("accountNo") String accountNo);
+	
+	@POST
+	@Path("create-test-data")
+	void createTestData();
 }

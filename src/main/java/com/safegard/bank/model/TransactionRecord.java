@@ -3,7 +3,10 @@ package com.safegard.bank.model;
 import com.safegard.bank.enums.TransactionType;
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import org.joda.time.DateTime;
 
 /**
@@ -16,6 +19,7 @@ import org.joda.time.DateTime;
 public class TransactionRecord implements Serializable {
 
 	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "TYPE", length = 20)
@@ -26,7 +30,7 @@ public class TransactionRecord implements Serializable {
 	private double credit;
 	@Column(name = "DEBIT")
 	private double debit;
-	@ManyToOne
+	@ManyToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name = "ACCOUNT_ID")
 	private Account account;
 

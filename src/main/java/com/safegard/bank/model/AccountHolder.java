@@ -1,5 +1,6 @@
 package com.safegard.bank.model;
 
+import com.safegard.bank.enums.Gender;
 import java.util.Date;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,7 +15,7 @@ public class AccountHolder {
 	private String firstName;
 	private String middleName;
 	private Date birthdate;
-	private String gender;
+	private Gender gender;
 	private String address;
 	private String phone;
 	private Account account;
@@ -56,12 +57,13 @@ public class AccountHolder {
 		this.birthdate = birthdate;
 	}
 
+	@Enumerated(EnumType.STRING)
 	@Column(name = "GENDER")
-	public String getGender() {
+	public Gender getGender() {
 		return gender;
 	}
 
-	public void setGender(String gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 
@@ -83,7 +85,7 @@ public class AccountHolder {
 		this.phone = phone;
 	}
 
-	@OneToOne(optional = false, mappedBy="accountHolder")
+	@OneToOne(optional = false, mappedBy="accountHolder", cascade= CascadeType.ALL)
 	public Account getAccount() {
 		return account;
 	}
