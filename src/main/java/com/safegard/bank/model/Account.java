@@ -103,11 +103,11 @@ public class Account implements Serializable {
 		this.accountHolder = accountHolder;
 	}
 	
-//	public Set<TransactionRecord> getTransactionRecords() {
-//		return transactionRecords;
-//	}
-//
-//	public void setTransactionRecords(Set<TransactionRecord> transactionRecords) {
-//		this.transactionRecords = transactionRecords;
-//	}
+	public Set<TransactionRecord> getTransactionRecords() {
+		return transactionRecords;
+	}
+
+	public void setTransactionRecords(Set<TransactionRecord> transactionRecords) {
+		this.transactionRecords = transactionRecords;
+	}
 }
