@@ -69,4 +69,12 @@ public class TransactionRecord implements Serializable {
 	public void setDebit(double debit) {
 		this.debit = debit;
 	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
 }

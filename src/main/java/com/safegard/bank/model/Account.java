@@ -22,7 +22,8 @@ public class Account implements Serializable {
 	private int version;
 	@Column(name = "ACCNT_NO")
 	private String accountNo;
-	@OneToOne
+	@OneToOne(fetch= FetchType.LAZY)
+	@JoinColumn(name="ACCOUNT_HOLDER_ID")
 	private AccountHolder accountHolder;
 	@Column(name = "PIN")
 	private String pin;
@@ -34,7 +35,7 @@ public class Account implements Serializable {
 	@Column(name = "TOTAL_BAL")
 	private double totalBalance;
 	@OneToMany(
-            mappedBy = "TRANS_RECORD",
+            mappedBy = "account",
 			   cascade = CascadeType.ALL)
 	private Set<TransactionRecord> transactionRecords;
 
@@ -102,11 +103,11 @@ public class Account implements Serializable {
 		this.accountHolder = accountHolder;
 	}
 	
-	public Set<TransactionRecord> getTransactionRecords() {
-		return transactionRecords;
-	}
-
-	public void setTransactionRecords(Set<TransactionRecord> transactionRecords) {
-		this.transactionRecords = transactionRecords;
-	}
+//	public Set<TransactionRecord> getTransactionRecords() {
+//		return transactionRecords;
+//	}
+//
+//	public void setTransactionRecords(Set<TransactionRecord> transactionRecords) {
+//		this.transactionRecords = transactionRecords;
+//	}
 }

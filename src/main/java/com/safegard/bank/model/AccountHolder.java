@@ -4,13 +4,12 @@ import java.util.Date;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
 @Entity
 @Table(name = "ACCOUNT_HOLDER")
 @XmlRootElement
 public class AccountHolder {
-	private Long id;
 
+	private Long id;
 	private String lastName;
 	private String firstName;
 	private String middleName;
@@ -84,7 +83,7 @@ public class AccountHolder {
 		this.phone = phone;
 	}
 
-	@OneToOne(optional = false, mappedBy = "accountHolder")
+	@OneToOne(optional = false, mappedBy="accountHolder")
 	public Account getAccount() {
 		return account;
 	}
@@ -94,6 +93,7 @@ public class AccountHolder {
 	}
 
 	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}
