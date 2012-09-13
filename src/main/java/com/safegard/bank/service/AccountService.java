@@ -16,20 +16,24 @@ import org.springframework.stereotype.Component;
 public interface AccountService {
 
 	@POST
-	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	Response save(Account account);
 
 	@GET
-	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	List<Account> findAll();
 
 	@GET
 	@Path("{id}")
-	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	Account findOne(@PathParam("id") Long id);
 
 	@GET
 	@Path("query")
-	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	Account findByAccountNo(@QueryParam("accountNo") String accountNo);
+	
+	@POST
+	@Path("create-test-data")
+	void createTestData();
 }

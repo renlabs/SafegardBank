@@ -2,7 +2,6 @@ package com.safegard.bank.repository;
 
 import com.safegard.bank.model.Account;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -11,7 +10,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface AccountRepo extends CrudRepository<Account, Long> {
 
-    @Query
     Account findByAccountNo(String accountNo);
 
 }
