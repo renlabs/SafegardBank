@@ -4,10 +4,12 @@ import com.safegard.bank.enums.Gender;
 import java.util.Date;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @Entity
 @Table(name = "ACCOUNT_HOLDER")
 @XmlRootElement
+@XmlType
 public class AccountHolder {
 
 	private Long id;

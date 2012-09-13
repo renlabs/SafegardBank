@@ -9,9 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @Entity
 @Table(name = "BANK_USER")
+@XmlRootElement
+@XmlType
 public class BankUser implements Serializable{
 
     private static final long serialVersionUID = -1426209485607891895L;

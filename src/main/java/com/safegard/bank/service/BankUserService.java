@@ -9,6 +9,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -37,7 +38,13 @@ public interface BankUserService {
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     List<BankUser> findAll();
 
+    @GET
+    @Path("query")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    BankUser findByUsername(@QueryParam("username") String username);
+
     @POST
     @Path("create-test-data")
     public Response createTestData();
+
 }

@@ -10,4 +10,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface BankUserRepo extends CrudRepository<BankUser, Long> {
 
+    BankUser findByUsername(String username);
+
 }
